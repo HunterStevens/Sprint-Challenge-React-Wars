@@ -2,15 +2,18 @@ import React from'react';
 import {Col,  Card,
     CardText, CardBody, CardTitle,
     CardSubtitle} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import styled from ''
 
-    //const person = styled.CardTitle`
-    //
-    //`;
+//     const person = styled.Card`
+//     display:flex;
+
+//     `;
 
 const StarWars = props =>{
 
 return(
-<Col md = "4" lg = "3">
+<Col md = "4">
     <Card>
         <CardTitle>{props.name}</CardTitle>
         <CardSubtitle>Gender: {props.gender}</CardSubtitle>

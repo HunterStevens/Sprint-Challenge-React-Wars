@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import {Container} from "reactstrap";
+import {Container, Row} from "reactstrap";
 import StarWars from './components/StarWars';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [person, setPerson] = useState();
@@ -26,8 +27,10 @@ useEffect(() => {
 
   return (
     <Container>
+      
       <div className="App">
       <h1 className="Header">React Wars</h1>
+        <Row>
         {person && person.map(character =>{
           return <StarWars key = {character} name = {character.name}
           gender = {character.gender}
@@ -38,7 +41,9 @@ useEffect(() => {
           eye_color = {character.eye_color}
           birth_year = {character.birth_year}/>;
         })}
+        </Row>
     </div>
+    
     </Container>
   );
 }
