@@ -7,20 +7,20 @@ import {Col,  Card,
     //
     //`;
 
-const StarWars = ({character}) =>{
+const StarWars = props =>{
 
 return(
 <Col md = "4" lg = "3">
     <Card>
-        <CardTitle>{character.name}</CardTitle>
-        <CardSubtitle>Gender: {character.gender} cm(?)</CardSubtitle>
+        <CardTitle>{props.name}</CardTitle>
+        <CardSubtitle>Gender: {props.gender}</CardSubtitle>
         <CardBody>
-            <CardText>Height: {character.height} cm</CardText>
-            <CardText>Mass: {character.mass}kg</CardText>
-            <CardText>Hair Color: {character.hair_color}</CardText>
-            <CardText>Skin Color: {character.skin_color}</CardText>
-            <CardText>Eye Color: {character.eye_color}</CardText>
-            <CardText>Birth Year: {character.birth_year}</CardText>
+            <CardText>Height: {props.height} cm</CardText>
+            <CardText>Mass: {props.mass}kg</CardText>
+            <CardText>Hair Color: {props.hair_color}</CardText>
+            <CardText>Skin Color: {props.skin_color}</CardText>
+            <CardText>Eye Color: {props.eye_color}</CardText>
+            <CardText>Birth Year: {props.birth_year}</CardText>
         </CardBody>
     </Card>
 </Col>

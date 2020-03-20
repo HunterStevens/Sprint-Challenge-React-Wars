@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import {Container, Row} from "reactstrap";
-import StarWars from './components/StarWars'
+import {Container} from "reactstrap";
+import StarWars from './components/StarWars';
 
 const App = () => {
-  const [person, setPerson] = useState([]);
+  const [person, setPerson] = useState();
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -15,31 +15,30 @@ const App = () => {
 useEffect(() => {
   axios.get('https://swapi.co/api/people/')
   .then(res =>{
-    const newArray = res.data.results;
-   // console.log("APP ARRAY ", res.data.results);
-    setPerson(newArray);
-    console.log("Grabed Data", person);
+    console.log("APP ARRAY ", res);
+
+    setPerson(res.data.results);
   })
   .catch(err =>{
     console.log("ERROR: ", err);
   })
 }, [])
-  // axios.get('https://swapi.co/api/people/')
-  // .then(res =>{
-  //   console.log("APP ARRAY ", res.data.results);
-  // })
-  // .catch(err =>{
-  //   console.log("ERROR: ", err);
-  // })
 
   return (
     <Container>
-      <Row className="App">
+      <div className="App">
       <h1 className="Header">React Wars</h1>
-        {/* {person.map(character =>{
-          return <StarWars name = {character.name} />;
-        })} */}
-    </Row>
+        {person && person.map(character =>{
+          return <StarWars key = {character} name = {character.name}
+          gender = {character.gender}
+          height = {character.height}
+          mass = {character.mass}
+          hair_color = {character.hair_color}
+          skin_color = {character.skin_color}
+          eye_color = {character.eye_color}
+          birth_year = {character.birth_year}/>;
+        })}
+    </div>
     </Container>
   );
 }
