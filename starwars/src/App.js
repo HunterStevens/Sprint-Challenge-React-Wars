@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [person, setPerson] = useState();
+  const [page, setPage] = useState(1);
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -16,7 +17,7 @@ const App = () => {
 useEffect(() => {
   axios.get('https://swapi.co/api/people/')
   .then(res =>{
-    console.log("APP ARRAY ", res);
+    console.log("API ARRAY ", res);
 
     setPerson(res.data.results);
   })
@@ -25,6 +26,15 @@ useEffect(() => {
   })
 }, [])
 
+useEffect(() => {
+  axios.get(`https://swapi.co/api/people/?page=${page}`)
+  .then(res =>{
+    console.log("Pagination ARRAY ", res);
+  })
+  .catch(err =>{
+    console.log("ERROR: ", err);
+  })
+}, [])
   return (
     <Container>
       
