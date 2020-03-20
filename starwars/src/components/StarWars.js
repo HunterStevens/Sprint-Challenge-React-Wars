@@ -10,8 +10,10 @@ import styled from 'styled-components';
      background-color:black;
      color:yellow;
      `;
-     const Text = styled.p`
+     const Text = styled.div`
      font-family: 'Montserrat', sans-serif;
+     background-color:black;
+     color:#39dae3;
      `;
 
 const StarWars = props =>{
@@ -23,13 +25,14 @@ return(
             <CardTitle><Name>{props.name}</Name></CardTitle>
             <CardSubtitle>Gender: {props.gender}</CardSubtitle>
         </CardHeader>
-        <CardBody>
-            <CardText><Text>Height: {props.height} cm</Text></CardText>
-            <CardText><Text>Mass: {props.mass}kg</Text></CardText>
-            <CardText><Text>Hair Color: {props.hair_color}</Text></CardText>
-            <CardText><Text>Skin Color: {props.skin_color}</Text></CardText>
-            <CardText><Text>Eye Color: {props.eye_color}</Text></CardText>
-            <CardText><Text>Birth Year: {props.birth_year}</Text></CardText>
+        <CardBody><Text>
+            <CardText> Height: {props.height} cm </CardText>
+            <CardText> Mass: {props.mass}kg </CardText>
+            <CardText> Hair Color: {props.hair_color} </CardText>
+            <CardText> Skin Color: {props.skin_color} </CardText>
+            <CardText> Eye Color: {props.eye_color} </CardText>
+            <CardText> Birth Year: {props.birth_year} </CardText>
+            </Text>
         </CardBody>
     </Card>
 </Col>
